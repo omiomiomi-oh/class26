@@ -7,7 +7,7 @@
   <style>
     *{margin:0;padding:0; box-sizing: border-box;}
     .wrap{
-      width:85%;
+      width:65%; min-height: 2000px;
       margin:0 auto;
       background-color: #ccc;
       padding:30px;
@@ -65,9 +65,19 @@
     .parent:nth-child(5){
        background-color: #c8f;
     }
+   
     .parent .child{
        width:50px; height: 50px;
        padding:10px;
+       /* position:absolute; */
+       /* normal flow 벗어나요
+          부모가 해당의 요소의 높이를 인식하지 못해요
+          본인의 부모의 콘텐츠의 영역으로 가져오지 못해요
+          자신의 콘텐츠 크기만큼의 너비로 줄어들어요
+          기준요소?
+          가까운 조상부터 position이 설정된 요소(단 static)
+       */
+       left:0; top:0;
     }
     .parent .child:nth-child(1){
       background-color: #fff;
@@ -78,6 +88,9 @@
     .box{
       background-color: #dd0;
     }
+      .parent:nth-child(5) .child{
+        position: static;
+      }
     /* 요소의 위치 설정 법 지정 position */
   </style>
 </head>
